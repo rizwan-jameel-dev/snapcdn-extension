@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: system-ui, sans-serif;
+        width: 340px;
+        background: #0f172a;
+        color: #e2e8f0;
+        padding: 16px;
+      }
+      .header {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 16px;
+      }
+      .logo {
+        width: 28px;
+        height: 28px;
+        background: #2563eb;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 12px;
+        color: #fff;
+      }
+      .title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #f1f5f9;
+      }
+      .subtitle {
+        font-size: 11px;
+        color: #64748b;
+        margin-top: 1px;
+      }
+      label {
+        font-size: 11px;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        display: block;
+        margin-bottom: 5px;
+      }
+      input {
+        width: 100%;
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 6px;
+        color: #e2e8f0;
+        font-size: 12px;
+        padding: 8px 10px;
+        outline: none;
+        transition: border-color 0.15s;
+      }
+      input:focus {
+        border-color: #2563eb;
+      }
+      input::placeholder {
+        color: #475569;
+      }
+      .field {
+        margin-bottom: 10px;
+      }
+      .btn-add {
+        width: 100%;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 9px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-top: 4px;
+        transition: background 0.15s;
+      }
+      .btn-add:hover {
+        background: #1d4ed8;
+      }
+      .divider {
+        border: none;
+        border-top: 1px solid #1e293b;
+        margin: 14px 0;
+      }
+      .rules-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+      }
+      .rule-item {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 6px;
+        padding: 8px 10px;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .rule-text {
+        font-size: 11px;
+        color: #cbd5e1;
+        flex: 1;
+        min-width: 0;
+      }
+      .rule-from {
+        color: #f87171;
+        word-break: break-all;
+      }
+      .rule-arrow {
+        color: #10b981;
+        margin: 0 4px;
+      }
+      .rule-to {
+        color: #34d399;
+        word-break: break-all;
+      }
+      .btn-del {
+        background: none;
+        border: none;
+        color: #475569;
+        cursor: pointer;
+        font-size: 14px;
+        flex-shrink: 0;
+        padding: 2px 4px;
+        border-radius: 4px;
+        transition:
+          color 0.15s,
+          background 0.15s;
+      }
+      .btn-del:hover {
+        color: #f87171;
+        background: #2d1f1f;
+      }
+      .empty {
+        font-size: 12px;
+        color: #475569;
+        text-align: center;
+        padding: 10px 0;
+      }
+      .status {
+        font-size: 11px;
+        color: #10b981;
+        text-align: center;
+        margin-top: 6px;
+        min-height: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">SC</div>
+      <div>
+        <div class="title">SnapCDN</div>
+        <div class="subtitle">CDN URL replacer</div>
+      </div>
+    </div>
+    <div class="field">
+      <label>Broken CDN URL (from)</label>
+      <input id="fromUrl" type="text" placeholder="https://bollyflixcdn.site" />
+    </div>
+    <div class="field">
+      <label>Working CDN URL (to)</label>
+      <input id="toUrl" type="text" placeholder="https://bollyflixcdn.frl" />
+    </div>
+    <button class="btn-add" id="btnAdd">+ Add Rule</button>
+    <div class="status" id="status"></div>
+    <hr class="divider" />
+    <div class="rules-title">Active Rules</div>
+    <div id="rulesList"></div>
+    <script src="popup.js"></script>
+  </body>
+</html>
